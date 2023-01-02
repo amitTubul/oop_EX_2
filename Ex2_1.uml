@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Ex2_1</OriginalElement>
+  <nodes>
+    <node x="132.02325581395348" y="-2.0">java.lang.Runnable</node>
+    <node x="126.0" y="77.0">Ex2_1.myThread</node>
+    <node x="-32.25" y="260.0">Ex2_1</node>
+    <node x="-73.63565891472871" y="9.5">java.util.concurrent.Callable</node>
+    <node x="-90.0" y="100.0">Ex2_1.LineCounterCallable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Ex2_1" target="Ex2_1.myThread" relationship="CREATE">
+      <point x="64.75" y="-82.5" />
+      <point x="162.0" y="240.0" />
+      <point x="204.0" y="240.0" />
+      <point x="204.0" y="220.0" />
+      <point x="235.5" y="220.0" />
+      <point x="36.5" y="61.5" />
+    </edge>
+    <edge source="Ex2_1.LineCounterCallable" target="java.util.concurrent.Callable" relationship="REALIZATION">
+      <point x="0.0" y="-38.5" />
+      <point x="8.0" y="63.5" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="Ex2_1" target="Ex2_1.LineCounterCallable" relationship="CREATE">
+      <point x="64.75" y="-82.5" />
+      <point x="162.0" y="240.0" />
+      <point x="204.0" y="240.0" />
+      <point x="204.0" y="220.0" />
+      <point x="57.0" y="220.0" />
+      <point x="49.0" y="38.5" />
+    </edge>
+    <edge source="Ex2_1.myThread" target="java.lang.Runnable" relationship="REALIZATION">
+      <point x="0.0" y="-61.5" />
+      <point x="199.0" y="52.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="Ex2_1.myThread" target="Ex2_1" relationship="INNER_CLASS">
+      <point x="-36.5" y="61.5" />
+      <point x="162.5" y="230.0" />
+      <point x="3.000000000000014" y="230.0" />
+      <point x="3.000000000000014" y="240.0" />
+      <point x="32.5" y="240.0" />
+      <point x="-64.75" y="-82.5" />
+    </edge>
+    <edge source="Ex2_1.LineCounterCallable" target="Ex2_1" relationship="INNER_CLASS">
+      <point x="-49.0" y="38.5" />
+      <point x="-41.0" y="230.0" />
+      <point x="3.000000000000014" y="230.0" />
+      <point x="3.000000000000014" y="240.0" />
+      <point x="32.5" y="240.0" />
+      <point x="-64.75" y="-82.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0932203389830508" showDependencies="true" x="101.0" y="209.0" />
+  <SelectedNodes>
+    <node>Ex2_1</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
