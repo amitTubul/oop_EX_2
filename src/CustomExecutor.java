@@ -17,16 +17,13 @@ public class CustomExecutor {
 
     public <T> Future<T> submit(Task<T> task) {
         maxPriority = Math.max(maxPriority, task.getPriority());
-        RunnableFuture<T> ftask = new FutureTask(task);
-        executor.execute(ftask);
-        return ftask;
-//        Future<T> result;
-//        try {
-//            result = executor.submit(task);
-//        } catch (NullPointerException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return result;
+        Future<T> result;
+        try {
+            result = executor.submit(task);
+        } catch (NullPointerException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     public <T> Future<T> submit(Callable<T> operation, TaskType type) {
