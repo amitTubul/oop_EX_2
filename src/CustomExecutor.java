@@ -21,18 +21,7 @@ public class CustomExecutor {
         this.maxPriority = 0;
     }
 
-<<<<<<< HEAD
-    public <T> Future<T> submit(Task<T> task) {
-        maxPriority = Math.max(maxPriority, task.getPriority());
-        Future<T> result;
-        try {
-            result = executor.submit(task);
-        } catch (NullPointerException e) {
-            throw new RuntimeException(e);
-        }
-        return result;
-=======
-//    public <T> Future<T> submit(Task<T> task) {
+    //    public <T> Future<T> submit(Task<T> task) {
 //        maxPriority = Math.max(maxPriority, task.getPriority());
 //        Future<T> result;
 //        try {
@@ -48,7 +37,6 @@ public class CustomExecutor {
 //        queue.add(futureTask);
         executor.execute(futureTask);
         return futureTask;
->>>>>>> 4f80805154d4203ed8075233df8ceb5d8f9609a5
     }
 
 

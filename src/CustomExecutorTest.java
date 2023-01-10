@@ -1,9 +1,11 @@
+import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
-import org.testng.annotations.Test;
+
 
 import java.util.concurrent.*;
 class Tests {
+
     public static final Logger logger = LoggerFactory.getLogger(Tests.class);
     /**
      * check if the queue add by priority,
@@ -70,8 +72,7 @@ class Tests {
         }
         customExecutor.gracefullyTerminate();
     }
-//    public static final Logger logger = LoggerFactory.getLogger(Tests.class);
-//
+
 //    @Test
 //    public void partialTest() {
 //        CustomExecutor customExecutor = new CustomExecutor();
