@@ -35,24 +35,12 @@ public class Task<T> implements Comparable<Task<T>> {
         return type;
     }
 
-//    public T get() {
-//        return this.result;
-//    }
-//
-//    public void run() {
-//        try {
-//            this.result = operation.call();
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     public T call() throws Exception {
         return operation.call();
     }
-
     @Override
     public int compareTo(Task<T> other) {
         return Integer.compare(this.getPriority(), other.getPriority());
     }
+
 }
