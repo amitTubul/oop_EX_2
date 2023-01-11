@@ -45,7 +45,7 @@ public class CustomExecutor extends ThreadPoolExecutor{
 >>>>>>> bd4d4019032b0c3386189f6bb63696aec0c219c9
                 300, TimeUnit.MILLISECONDS, queue);
         this.currentMaxPriority = new AtomicInteger(Integer.MAX_VALUE);
-        this.queuePriorities = new AtomicIntegerArray(10);//The priority can be between 1-10.
+        this.queuePriorities = new AtomicIntegerArray(11);//The priority can be between 1-10.
     }
 
 <<<<<<< HEAD
@@ -76,7 +76,7 @@ public class CustomExecutor extends ThreadPoolExecutor{
      */
     public <T> Future<T> submit(Task<T> task) {
         queuePriorities.getAndIncrement(task.getPriority());
-        for (int i=0; i<queuePriorities.length(); i++) {
+        for (int i=1; i<queuePriorities.length(); i++) {
             if (queuePriorities.get(i) != 0) {
                 currentMaxPriority.set(i);
                 break;
@@ -123,7 +123,7 @@ public class CustomExecutor extends ThreadPoolExecutor{
 
 
     /**
-     *The method get currentMaxPriority variable.
+     * currentMaxPriority variable getter.
      * @return the priority of the task with the highest priority for execution.
      */
     public AtomicInteger getCurrentMax() {
@@ -141,7 +141,7 @@ public class CustomExecutor extends ThreadPoolExecutor{
      *
      * We override this method to update currentMaxPriority a moment before a task
      * get out from the queue. if there are no more tasks in the queue- set
-     * it to 0.
+     * it to -1.
      *
      * @param t the thread that will run task {@code r}
      * @param r the task that will be executed
@@ -153,8 +153,8 @@ public class CustomExecutor extends ThreadPoolExecutor{
             if (queuePriorities.get(i) != 0) {
                 currentMaxPriority.set(i);
                 break;
-            } else if (i == queuePriorities.length()-1 && queuePriorities.get(0) == 0) {
-                currentMaxPriority.set(0);
+            } else if (i == queuePriorities.length()-1) {
+                currentMaxPriority.set(-1);
             }
         }
         super.beforeExecute(t, r);

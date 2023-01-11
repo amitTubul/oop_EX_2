@@ -100,18 +100,17 @@ public class Task<T> extends FutureTask<T> implements Comparable<Task<T>> {
      * Not really needed because we extend FutureTask which call the callable object
      * and throw an exception if needed.
      *
-     * We implement it anyway because it was on of the requirements of the Matala.
+     * We implement it anyway because it was one of the requirements of the Exercise.
      * @return call the callable operation.
      * @throws Exception
      */
-    //
     public T call() throws Exception {
         return operation.call();
     }
 
 
     /**
-     * The method comare 2 tasks by their priority value.
+     * The method compare 2 tasks by their priority value.
      * @param other the Task object to be compared.
      * @return result of comparing.
      */
