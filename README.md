@@ -5,7 +5,7 @@ each part includes src folder contains the relevant files for the relevant part
 
 ## EX2_1:
 
-contains the requested functions for this part of exercise.
+contains the requested functions for part 1 of exercise.
 
 createTextFiles(): creates n files with a random number of lines, every line conteins the string:"hello world", the function returns a string array includes
 the names of the files.
@@ -37,6 +37,18 @@ getNumOfLinesThreadPool is more efficient than getNumOfLinesThreads because it m
 
 
 
+
+
+
 ## EX2_2:
+
+contains the relevant java files for this ecercise.
+
+#### tasktype.java:
+contains the code we got from part 2 of exercise.
+
+#### task.java:
+
+
 
 
