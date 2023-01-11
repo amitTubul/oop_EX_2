@@ -26,11 +26,11 @@ divide the work among all the threads, thus completing the task much faster.
 
 getNumOfLinesThreadPool is more efficient than getNumOfLinesThreads because it makes use of a thread pool, which is a pre-configured and reusable set of threads. Instead of creating a new thread for every file, the thread pool will reuse the existing threads. This can be more efficient than creating new threads because creating and destroying threads can be a costly operation.
 
-test output of 100 files:
+#### test output of 100 files:
 
 <img width="214" alt="image" src="https://user-images.githubusercontent.com/117980808/211850147-3a922f78-c9d6-4b81-aa10-835841ce159b.png">
 
-classes diagram of Ex2_1:
+#### classes diagram of Ex2_1:
 
 ![image](https://user-images.githubusercontent.com/117980808/211852668-bf84ac63-a1f0-4f32-856f-6b20bc0a16f5.png)
 
