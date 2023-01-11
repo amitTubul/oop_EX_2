@@ -7,33 +7,6 @@ import java.util.concurrent.*;
 
 public class Ex2_1 {
 
-    public static void main (String[] args) throws IOException, InterruptedException, ExecutionException {
-        String [] str = createTextFiles(100,2,100);
-        System.out.println("No threads:");
-        long startTime = System.nanoTime();
-        System.out.println("Number of lines:" + getNumOfLines(str));
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
-        System.out.println("Runtime: "+ duration +" ms");
-        System.out.println("\n---------------------------------");
-
-        System.out.println("Using threads:");
-        startTime = System.nanoTime();
-        System.out.println("Number of lines:" + getNumOfLinesThreads(str));
-        endTime = System.nanoTime();
-        duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
-        System.out.println("Runtimes: "+ duration+" ms");
-        System.out.println("\n---------------------------------");
-
-        System.out.println("Using threadPool:");
-        startTime = System.nanoTime();
-        System.out.println("Number of lines:" + getNumOfLinesThreadPool(str));
-        endTime = System.nanoTime();
-        duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
-        System.out.println("Runtime: "+ duration+" ms");
-    }
-
-
     public static String[] createTextFiles(int n, int seed, int bound) throws IOException {
         Random rand = new Random(seed);
         String [] files_names =new String[n];
@@ -134,4 +107,10 @@ public class Ex2_1 {
             return getNumOfLines(new String[]{fileName});
         }
     }
+
+
+    public static void main (String[] args) {
+
+    }
+
 }
