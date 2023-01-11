@@ -1,17 +1,7 @@
-import java.util.Comparator;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
-<<<<<<< HEAD
-public class CustomExecutor {
-
-    private PriorityBlockingQueue<Runnable> queue;//task???
-    private ThreadPoolExecutor executor;
-    private int numOfCores;
-    private volatile int maxPriority;
-=======
->>>>>>> bd4d4019032b0c3386189f6bb63696aec0c219c9
 
 /**CustomExecutor class extends ThreadPoolExecutor class and can execute Task class object tasks
  * by their priority.
@@ -36,36 +26,12 @@ public class CustomExecutor extends ThreadPoolExecutor{
      * holding queued tasks priorities.
      */
     public CustomExecutor() {
-<<<<<<< HEAD
-        this.numOfCores = Runtime.getRuntime().availableProcessors();
-        this.queue = new PriorityBlockingQueue<>();
-        this.executor = new ThreadPoolExecutor(this.numOfCores/2, this.numOfCores-1,
-=======
         super(numOfCores/2,numOfCores-1,
->>>>>>> bd4d4019032b0c3386189f6bb63696aec0c219c9
                 300, TimeUnit.MILLISECONDS, queue);
         this.currentMaxPriority = new AtomicInteger(Integer.MAX_VALUE);
         this.queuePriorities = new AtomicIntegerArray(11);//The priority can be between 1-10.
     }
 
-<<<<<<< HEAD
-    //    public <T> Future<T> submit(Task<T> task) {
-//        maxPriority = Math.max(maxPriority, task.getPriority());
-//        Future<T> result;
-//        try {
-//            result = (Future<T>) executor.submit(task);
-//        } catch (NullPointerException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return result;
-//    }
-    public <T> Future<T> submit(Task<T> task) {
-        maxPriority = Math.max(maxPriority, task.getPriority());
-        TaskFuture<T> futureTask = new TaskFuture<>(task.getOperation(), task.getType());
-        queue.add(futureTask);
-        executor.execute(futureTask);
-        return futureTask;
-=======
 
     /**
      * The method submit a Task object to the CustomExecutor for executing it sometime in
@@ -84,7 +50,6 @@ public class CustomExecutor extends ThreadPoolExecutor{
         }
         super.execute(task);
         return task;
->>>>>>> bd4d4019032b0c3386189f6bb63696aec0c219c9
     }
 
 
@@ -169,42 +134,4 @@ public class CustomExecutor extends ThreadPoolExecutor{
         super.shutdown();
     }
 
-<<<<<<< HEAD
-    public class TaskFuture<V> extends FutureTask<V> implements Comparable {
-
-        @Override
-        public String toString() {
-            return "TaskFuture{" +
-                    "type=" + type.getPriorityValue() +
-                    '}';
-        }
-
-        private TaskType type;
-
-        public TaskFuture(Callable<V> operation, TaskType type) {
-            super(operation);
-            this.type = type;
-        }
-
-        public int getPriority() {
-            return type.getPriorityValue();
-        }
-
-        public void setPriority(int x) {
-            type.setPriority(x);
-        }
-
-        public TaskType getType() {
-            return type;
-        }
-
-        @Override
-        public int compareTo(Object other) {
-            return Integer.compare(this.getPriority(), ((TaskFuture<?>)other).getPriority());
-        }
-
-    }
 }
-=======
-}
->>>>>>> bd4d4019032b0c3386189f6bb63696aec0c219c9

@@ -90,11 +90,6 @@ public class Task<T> extends FutureTask<T> implements Comparable<Task<T>> {
         return type;
     }
 
-<<<<<<< HEAD
-    public T call() throws Exception {
-        return operation.call();
-    }
-=======
 
     /**
      * Not really needed because we extend FutureTask which call the callable object
@@ -114,10 +109,8 @@ public class Task<T> extends FutureTask<T> implements Comparable<Task<T>> {
      * @param other the Task object to be compared.
      * @return result of comparing.
      */
->>>>>>> bd4d4019032b0c3386189f6bb63696aec0c219c9
     @Override
     public int compareTo(Task<T> other) {
         return Integer.compare(this.getPriority(), other.getPriority());
     }
-
 }
