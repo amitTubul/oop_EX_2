@@ -3,7 +3,7 @@ this excercise includes two main directories: Ex2_1 and Ex2_2
 each directory is intended to answer part 1 and part 2 respectively
 each part includes src folder contains the relevant files for the relevant part
 
-# EX2_1:
+## EX2_1:
 
 contains the requested functions for this part of exercise.
 
@@ -18,7 +18,7 @@ which use "myThread" class.
 getNumOfLinesThreadPool():reads the n files using the string array includes all the files names and sum the amount of all lines in the files
 using threadpool which using "LineCounterCallable" class.
 
-# efficiency:
+### efficiency:
 getNumOfLinesThreads is more efficient than getNumOfLines because it can process multiple files in parallel, whereas getNumOfLines processes them one at a time.
 By using multiple threads, the program can take advantage of multiple CPU cores, potentially completing the task more quickly.
 Also, when the number of files is quite big the sequential implementation can take a long time while parallel implementation will
@@ -37,6 +37,6 @@ classes diagram of Ex2_1:
 
 
 
-# EX2_2:
+## EX2_2:
 
 
