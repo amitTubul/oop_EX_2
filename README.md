@@ -41,14 +41,43 @@ getNumOfLinesThreadPool is more efficient than getNumOfLinesThreads because it m
 
 
 ## EX2_2:
-
 contains the relevant java files for this ecercise.
 
 #### tasktype.java:
+represents the task's priority. 
 contains the code we got from part 2 of exercise.
 
+
 #### task.java:
+represents a generic task that can be submitted to an execution by CustomExecutor.
 
+The class extends FutureTask because the CustomExecutor can only execute Future objects.
+It also implements the Comparable interface, so that tasks can be compared and sorted by priority.
 
+The task class holds a Callable object, which represents the actual operation to be executed, and a TaskType object, which represents the task's priority.
+The class provides factory methods for creating Task objects, one with default priority (TaskType.OTHER) and one with given priority, as well as methods for getting and setting the priority and getting the callable operation.
 
+It also provides an override for toString() method, so that task can be presented as string.
+The class also has compareTo (Task<T> other) method which allows the class to compare between two tasks by their priority, this is 
+needed as the class implements Comparable interface.
 
+#### CustomExecutor.java:
+  
+"CustomExecutor" is a custom-built executor service that uses a thread pool, extends ThreadPoolExecutor and designed to execute Task class objects according to their priority.
+
+The CustomExecutor creates a thread pool with a number of threads equal to the number of cores on the host machine divided by 2 as a minimum size and number of cores - 1 as maximum.
+It also creates a PriorityBlockingQueue which is used as a storage for waiting tasks.
+
+It also holds an AtomicInteger variable currentMaxPriority which holds the priority of the task with the highest priority for execution and an AtomicIntegerArray queuePriorities which holds the number of tasks of each priority that are waiting in the queue.
+
+The class provides 2 submit methods which creating Task objects, one with default priority(TaskType.OTHER) and one with a given priority.
+
+It also provides an override for submit() method, which is used to submit task object to the executor service by adding it to the PriorityBlockingQueue and keep track of the current max priority in the queue.
+
+  
+#### classes diagram of Ex2_2:
+(CustomExecutor extends ThreadPoolExecutor but, it was too big for the diagram so it is not there)
+  
+![Ex2_2](https://user-images.githubusercontent.com/117980808/211863482-d0e6433c-5e4c-4889-8d32-14053a037ed4.jpg)
+
+  
