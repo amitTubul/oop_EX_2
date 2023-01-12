@@ -127,11 +127,22 @@ public class CustomExecutor extends ThreadPoolExecutor{
 
 
     /**
-     * Initiates an orderly shutdown in which previously submitted tasks are executed,
-     * but no new tasks will be accepted. Invocation has no additional effect if already shut down.
+     * Initiates an orderly shutdown in which new tasks cannot be submitted to the queue,
+     * executing all tasks in queue until queue is empty
+     * and make sure that all tasks are executed.
      */
     public void gracefullyTerminate() {
-        super.shutdown();
+        super.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
+
+        while (!this.getQueue().isEmpty()) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                // Do nothing
+            }
+        }
+        this.shutdown();
     }
+
 
 }

@@ -67,5 +67,7 @@ public class CustomExecutorTest {
 
 
         customExecutor.gracefullyTerminate();
+        logger.info(()->"Is queue empty?: " + customExecutor.getQueue().isEmpty());
+        logger.info(()->"Is terminated?: " + customExecutor.isTerminated());
     }
 }
